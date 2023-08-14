@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.EditCoursePage"
+             Title="{Binding CourseName}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SaveCourse" Text="Save" Clicked="SaveCourse_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        
+        <ScrollView HeightRequest="3000">
+        <StackLayout>
+            <Label Text="Course Name:" FontSize="Medium"/>
+            <Entry x:Name="CourseName"  Text="{Binding CourseName}" FontSize="Small"/>
+            
+            <Picker Grid.Row="1" Grid.Column="0" x:Name="CourseStatus" Title="Select Course Status" FontAttributes="Bold" SelectedItem="{Binding CourseStatus}">
+                <Picker.Items>
+                    <x:String>Ongoing</x:String>
+                    <x:String>Completed</x:String>
+                    <x:String>Failed</x:String>
+                    <x:String>Dropped</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            
+            
+            <Label Text="Start Date" />
+            <DatePicker x:Name="CourseStart" VerticalOptions="Fill" Date="{Binding CourseStart}" Format="MM-dd-yyyy"/>
+            <Label Text="End Date" />
+            <DatePicker x:Name="CourseEnd" VerticalOptions="Fill" Date="{Binding CourseEnd}" Format="MM-dd-yyyy"/>
+            <Label Text="Course Instructor Name:" FontSize="Medium"/>
+            <Entry x:Name="CourseInstuctorName"  Text="{Binding CourseInstructor}" FontSize="Small"/>
+            <Label Text="Course Instructor Phone:" FontSize="Medium"/>
+            <Entry x:Name="CourseInstructorPhone"  Text="{Binding CourseInstructorPhone}" FontSize="Small"/>
+            <Label Text="Course InstructorEmail:" FontSize="Medium"/>
+            <Entry x:Name="CourseInstructorEmail"  Text="{Binding CourseInstructorEmail}" FontSize="Small"/>
+            <Label Text="Course Notes:" FontSize="Medium"/>
+            <Entry x:Name="CourseNotes"  Text="{Binding Notes}" FontSize="Small"/>
+            <Label Text="Notifications" FontSize="Medium"/>
+            <CheckBox Grid.Row="8" Grid.Column="1" x:Name="Notifications"/>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

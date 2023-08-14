@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.ViewTermPage">
+
+    <NavigationPage.TitleView>
+        <Label x:Name="TermName" Text="{Binding TermName}" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"></Label>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EditTerm" Text="Edit Term" Order="Secondary" Clicked="EditTerm_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="AddCourse" Text="Add Course" Order="Secondary" Clicked="AddCourse_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="RemoveTerm" Text="Remove Term" Order="Secondary" Clicked="RemoveTerm_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="White">
+        <Label Text="{Binding TermName}" FontSize="Small" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+        
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span x:Name="TermStartDate" Text="{Binding TermStart, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                    <Span Text=" - " TextColor="Gray"/>
+                    <Span x:Name="TermEndDate" Text="{Binding TermEnd, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        
+
+        <ListView BackgroundColor="White" ItemsSource="{Binding Course}" SelectionMode="Single" x:Name="Courselist" ItemSelected="Courselist_ItemSelected" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+
+                        
+
+
+                        <Frame BackgroundColor="White" BorderColor="LightBlue" HasShadow="True" CornerRadius="10" Padding="20" Margin="10">
+                            <StackLayout>
+                            <Label Text="{Binding CourseName}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            
+                            <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" >
+                                
+                                <Label.FormattedText >
+                                    <FormattedString>
+                                        <Span Text="{Binding CourseStart, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                                            <Span Text=" - " TextColor="Gray"/>
+                                            <Span Text="{Binding CourseEnd, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            </StackLayout>
+                        </Frame>
+                            
+
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+</ContentPage>

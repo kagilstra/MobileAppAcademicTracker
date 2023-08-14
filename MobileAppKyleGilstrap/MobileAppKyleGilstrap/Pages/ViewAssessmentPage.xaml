@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.ViewAssessmentPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding AssessmentName}" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"></Label>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EditAssessment" Text="Edit Assessment" Order="Secondary" Clicked="EditAssessment_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="RemoveAssessment" Text="Delete Assessment" Order="Secondary" Clicked="RemoveAssessment_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            
+            <Label x:Name="AssessmentName"  Text="{Binding AssessmentName}" FontSize="Small" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+
+            <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.FormattedText >
+                    <FormattedString>
+                        <Span Text="Due Date: " TextColor="Gray"/>
+                        <Span x:Name="DueDate" Text="{Binding DueDate, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.FormattedText >
+                    <FormattedString>
+                        <Span Text="Type: " TextColor="Gray"/>
+                        <Span x:Name="AssessmentType" Text="{Binding AssessmentType}" TextColor="Gray"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.FormattedText >
+                    <FormattedString>
+                        <Span Text="Notifications Enabled: " TextColor="Gray"/>
+                        <Span x:Name="AssessmentNotify" Text="{Binding AssessmentAlert}" TextColor="Gray"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

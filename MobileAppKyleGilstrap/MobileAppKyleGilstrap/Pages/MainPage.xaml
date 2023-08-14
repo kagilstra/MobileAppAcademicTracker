@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.MainPage"
+             NavigationPage.HasNavigationBar="True"
+             Title="HomePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddTerm" Text="Add Term" Order="Secondary" Clicked="AddTerm_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    
+        <ListView BackgroundColor="White" ItemsSource="{Binding Term}" SelectionMode="Single" x:Name="Termlist" ItemSelected="Termlist_ItemSelected" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BackgroundColor="White" BorderColor="LightBlue" HasShadow="True" CornerRadius="10" Padding="20" Margin="10">
+                        <StackLayout>
+                            <Label Text="{Binding TermName}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                            <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" >
+
+                                <Label.FormattedText >
+                                    <FormattedString>
+                                        <Span Text="{Binding TermStart, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                                        <Span Text=" - " TextColor="Gray"/>
+                                        <Span Text="{Binding TermEnd, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+
+
+</ContentPage>

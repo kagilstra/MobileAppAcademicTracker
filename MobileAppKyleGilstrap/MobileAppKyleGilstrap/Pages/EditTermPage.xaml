@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.EditTermPage"
+             Title="{Binding TermName}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SaveTerm" Text="Save" Clicked="SaveTerm_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="CancelTerm" Text="Cancel" Clicked="CancelTerm_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Term Name:" FontSize="Medium"/>
+            <Entry x:Name="TermName"  Text="{Binding TermName}" FontSize="Small"/>
+            <Label Text="Start Date" />
+            <DatePicker x:Name="StartDatePicker" VerticalOptions="Fill" Date="{Binding TermStart}" Format="MM-dd-yyyy"/>
+            <Label Text="End Date" />
+            <DatePicker x:Name="EndDatePicker" VerticalOptions="Fill" Date="{Binding TermEnd}" Format="MM-dd-yyyy"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

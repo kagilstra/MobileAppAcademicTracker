@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.EditAssessmentPage"
+             Title="{Binding AssessmentName}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SaveAssessment" Text="Save" Clicked="SaveAssessment_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="CancelAssessment" Text="Cancel" Clicked="CancelAssessment_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView HeightRequest="3000">
+            <StackLayout>
+                <Label Text="Assessment Name:" FontSize="Small" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                <Entry x:Name="AssessmentName"  Text="{Binding AssessmentName}" FontSize="Small"/>
+
+                <Label Text="Due Date:" FontSize="Small" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                <DatePicker x:Name="AssessmentDue" VerticalOptions="Fill" Date="{Binding DueDate}" Format="MM-dd-yyyy"/>
+
+                <Label Text="Notifications:" FontSize="Small" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                <CheckBox x:Name="Notifications" IsChecked="{Binding AssessmentAlert}"/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

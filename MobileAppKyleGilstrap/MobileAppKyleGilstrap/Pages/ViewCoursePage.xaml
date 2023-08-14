@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppKyleGilstrap.Pages.ViewCoursePage">
+    
+    <NavigationPage.TitleView>
+        <Label Text="{Binding CourseName}" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"></Label>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EditCourse" Text="Edit Course" Order="Secondary" Clicked="EditCourse_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="RemoveCourse" Text="Delete Course" Order="Secondary" Clicked="RemoveCourse_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="AddAssessment" Text="Add Assessment" Order="Secondary" Clicked="AddAssessment_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="White"> 
+        
+        <Label x:Name="CourseName"  Text="{Binding CourseName}" FontSize="Small" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+        
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span x:Name="StartDate" Text="{Binding CourseStart, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                    <Span Text=" - " TextColor="Gray"/>
+                    <Span x:Name="EndDatePicker" Text="{Binding CourseEnd, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span Text="Status: " TextColor="Gray"/>
+                    <Span x:Name="CourseStatus" Text="{Binding CourseStatus}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span Text="Notifications On: " TextColor="Gray"/>
+                    <Span x:Name="Notifications" Text="{Binding Notifications}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span Text="Instructor Name: " TextColor="Gray"/>
+                    <Span x:Name="InstructorName" Text="{Binding CourseInstructor}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span Text="Instructor Phone: " TextColor="Gray"/>
+                    <Span x:Name="InstructorPhone" Text="{Binding CourseInstructorPhone}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label.FormattedText >
+                <FormattedString>
+                    <Span Text="Instructor Email: " TextColor="Gray"/>
+                    <Span x:Name="InstructorEmail" Text="{Binding CourseInstructorEmail}" TextColor="Gray"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label Text="Course Notes" FontSize="Small" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+        <Label x:Name="CourseNotes" Text="{Binding Notes}" HorizontalOptions="Center" TextColor="Gray"/>
+        <Button Text="Share" x:Name="ShareNotes" HorizontalOptions="Center" Clicked="ShareNotes_Clicked"/>
+
+
+        <ListView BackgroundColor="White" ItemsSource="{Binding Assessment}" SelectionMode="Single" x:Name="Assessmentlist" ItemSelected="Assessmentlist_ItemSelected" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="White" BorderColor="LightBlue" HasShadow="True" CornerRadius="10" Padding="20" Margin="10" >
+                            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                                <Label FontSize="Small" Text="{Binding AssessmentName}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                                <Label LineBreakMode="WordWrap" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" >
+                                    <Label.FormattedText >
+                                        <FormattedString>
+                                            <Span Text="Due: " TextColor="Gray"/>
+                                            <Span Text="{Binding DueDate, StringFormat='{}{0:MM/dd/yyyy}'}" TextColor="Gray"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+</ContentPage>
